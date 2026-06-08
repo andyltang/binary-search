@@ -13,23 +13,27 @@ export function BinarySearchCode({ isLeftBias, target, checkEquality }) {
       return res`;
   
   const rightBinarySearch = `
-    def binarySearchRight(arr):
-      l, r = 0, len(arr) - 1
-      res = len(arr)
-      while l <= r:
-          m = l + (r - l) // 2
-          if arr[m] ${checkEquality ? '>=' : '>'} target:
-              r = m - 1
-              res = m
-          else:
-              l = m + 1
-      return res`;
+  def binarySearchRight(arr):
+    l, r = 0, len(arr) - 1
+    res = len(arr)
+    while l <= r:
+        m = l + (r - l) // 2
+        if arr[m] ${checkEquality ? '>=' : '>'} target:
+            r = m - 1
+            res = m
+        else:
+            l = m + 1
+    return res`;
 
   return (
     <pre>
       <code>
+        {`# predicate = ${isLeftBias ? `arr[m] ${checkEquality ? "<=" : "<"} target`
+                                     : `arr[m] ${checkEquality ? ">=" : ">"} target`}`}
+        <br />
         {isLeftBias ? `# "The largest value less than ${checkEquality ? "or equal to " : ''}${target}"`
                     : `# "The smallest value greater than ${checkEquality ? "or equal to " : ''}${target}"`}
+        
         <br />
         {isLeftBias ? leftBinarySearch : rightBinarySearch}
       </code>

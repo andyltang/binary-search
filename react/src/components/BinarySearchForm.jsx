@@ -44,14 +44,22 @@ export function BinarySearchForm({ target, setTarget, array, setArray, checkEqua
   }
   
   return (
-    <div className="grid-col-3 margin-top-bottom">
-      <div><label>Target =</label> <input type="number" value={target} onChange={handleTarget} /></div>
-      <div><label>Array =</label> <Combobox data={data} value={arrayDisplay} handleChange={handleArray}
-                            open={open} toggleOpen={toggleOpen} 
-                            handleBlur={handleBlur} handleOption={handleOption} /></div>
-      <br />
-      <div><input type="checkbox" checked={checkEquality}
-                                  onChange={(e) => setCheckEquality(e.target.checked)} />Equality</div>
-    </div>
+    <>
+      <div className="grid-col-3 margin-top-bottom">
+        <div><label>Target =</label> <input type="number" value={target} onChange={handleTarget} /></div>
+        <div><label>Array =</label> <Combobox data={data} value={arrayDisplay} handleChange={handleArray}
+                              open={open} toggleOpen={toggleOpen} 
+                              handleBlur={handleBlur} handleOption={handleOption} /></div>
+      </div>
+      <div className="grid-col-2 margin-top-bottom">
+        <div><input type="checkbox" checked={checkEquality}
+                                    onChange={(e) => setCheckEquality(e.target.checked)} />Equality</div>
+        <div>
+            <label>🟩 Matches search predicate</label>
+            <br />
+            <label>🟥 Does not match predicate</label>
+        </div>
+      </div>
+    </>
   )
 }

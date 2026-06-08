@@ -4,7 +4,7 @@ import { BinarySearchVisualizer } from './BinarySearchVisualizer';
 
 export function BinarySearchCard({ target, array, checkEquality, isLeftBias, search, predicate }) {
   return (
-    <div className="grid-col-2">
+    <div className="grid-col-2 margin-top-bottom">
       <BinarySearchCode target={target} checkEquality={checkEquality} isLeftBias={isLeftBias} />
       <BinarySearchVisualizer array={array} target={target} search={search} predicate={predicate} />
     </div>
