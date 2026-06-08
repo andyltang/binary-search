@@ -1,4 +1,4 @@
-export function BinarySearchCode({ isLeftBias, checkEquality }) {
+export function BinarySearchCode({ isLeftBias, target, checkEquality }) {
   const leftBinarySearch = `
   def binarySearchLeft(arr):
       l, r = 0, len(arr) - 1
@@ -28,8 +28,8 @@ export function BinarySearchCode({ isLeftBias, checkEquality }) {
   return (
     <pre>
       <code>
-        {isLeftBias ? `# "The largest value smaller than ${checkEquality ? "or equal to " : ''}target"`
-                    : `# "The smallest value larger than ${checkEquality ? "or equal to " : ''}target"`}
+        {isLeftBias ? `# "The largest value smaller than ${checkEquality ? "or equal to " : ''}${target}"`
+                    : `# "The smallest value larger than ${checkEquality ? "or equal to " : ''}${target}"`}
         <br />
         {isLeftBias ? leftBinarySearch : rightBinarySearch}
       </code>
