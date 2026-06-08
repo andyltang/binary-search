@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Binary Search</h1>
+    </header>
+
+    <div class="target-container sticky">
+        <pre class="blur"><code>target = <input type="number" inputmode="numeric" id="target" min="0" max="10" value="5"></input></code></pre>
+    </div>
+
+    <main>
+        <div class="panel-container">
+            <div class="panel">
+                <pre><code class="language-python">
+# "The largest value smaller or equal to target"
+
+def binarySearchLeft(arr):
+    l, r = 0, len(arr) - 1
+    res = -1
+    while l <= r:
+        m = l + (r - l) // 2
+        if arr[m] <= target:
+            l = m + 1
+            res = m
+        else:
+            r = m - 1
+    return res
+                </code></pre>
+            </div>
+
+            <div class="panel">
+                <div class="array" data-element-type="distinct" data-search-bias="left"></div>
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="panel">
+                <pre><code class="language-python">
+# "The smallest value greater or equal to target"
+
+def binarySearchRight(arr):
+    l, r = 0, len(arr) - 1
+    res = len(arr)
+    while l <= r:
+        m = l + (r - l) // 2
+        if arr[m] >= target:
+            r = m - 1
+            res = m
+        else:
+            l = m + 1
+    return res
+                </code></pre>
+            </div>
+
+            <div class="panel">
+                <div class="array" data-element-type="distinct" data-search-bias="right"></div>
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="panel">
+                <pre><code class="language-python"># Search on array of non-decreasing elements</code></pre>
+            </div>
+
+            <div class="panel">
+                <div class="array" data-element-type="duplicates" data-search-bias="left"></div>
+                <div class="array" data-element-type="duplicates" data-search-bias="right"></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

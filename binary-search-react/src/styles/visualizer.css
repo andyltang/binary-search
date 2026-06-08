@@ -1,0 +1,38 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.active {
+    background-color: #7fb685;
+}
+
+.inactive {
+    background-color: #ef6f6c;
+}
+
+.found {
+    font-weight: bold;
+    color: white;
+}
+
+.transitions {
+    transition:
+        background-color 0.1s linear,
+        transform 0.1s linear;
+}
+
+.transform-scale {
+    transform: scale(1.2);
+}

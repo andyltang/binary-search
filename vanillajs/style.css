@@ -1,0 +1,131 @@
+:root {
+    --primary-color: lightcoral;
+    --secondary-color: #90EE90;
+    --accent-color: #32CD32;
+    --bg-color: #e8e8e8;
+    --black: rgba(0, 0, 0, 0.7);
+    --white: rgba(255, 255, 255, 0.7);
+    --border-radius: 5px;
+    --flexible-width: 2vw;
+    --flexible-height: 2vh;
+    --fixed-space: 1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: var(--black);
+}
+
+body {
+    margin: var(--fixed-space) auto;
+    max-width: 960px;
+    background: var(--bg-color);
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+pre {
+    background-color: var(--black);
+    border-radius: var(--border-radius);
+    padding: var(--flexible-height) var(--fixed-space);
+    height: 100%;
+    overflow-x: auto;
+}
+
+code {
+    font-family: monospace;
+    color: var(--white);
+}
+
+.target-container {
+    display: flex;
+    flex-direction: horizontal;
+    align-items: center;
+    padding: var(--fixed-space);
+    padding-bottom: 0;
+}
+
+.target-container #target {
+    width: 3em;
+    height: 2em;
+    text-align: center;
+    font-size: 16px;    /* prevent zoom-ins on mobile */
+    border-radius: var(--border-radius);
+}
+
+.target-container #target:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.panel-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--flexible-width);
+    padding: var(--fixed-space);
+    padding-bottom: 0;
+}
+
+.panel-container > .panel {
+    display: flex;
+    flex: 0 0 50%;
+    overflow-x: auto;
+    flex-direction: column;
+}
+
+.array {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: auto auto;
+    gap: 5px;
+    margin-bottom: var(--fixed-space);
+}
+
+.array > .result {
+    grid-column: 1 / -1;    /* 1 col spanning to the end */
+}
+
+.element {
+    display: grid;
+    aspect-ratio: 1 / 1;
+    place-items: center;
+    background: var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: clamp(16px, var(--flexible-width), 32px);
+    font-weight: bold;
+    user-select: none;
+    transition: background 0.3s;
+}
+
+.element.valid {
+    background: var(--secondary-color);
+}
+
+.element.target {
+    background: var(--accent-color);
+}
+
+.invalid-result::after {
+    content: ' (Out of bound!!)';
+    color: red;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.blur {
+    backdrop-filter: blur(5px);
+}

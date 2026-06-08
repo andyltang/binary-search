@@ -1,0 +1,11 @@
+.options button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    border: none;
+}
+
+.options button:hover {
+    background-color: lightgrey;
+}
