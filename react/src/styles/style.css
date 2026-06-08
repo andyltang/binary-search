@@ -12,6 +12,12 @@
     gap: 16px;
 }
 
+@media (orientation: portrait) {
+    .grid-col-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
 .grid-col-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr;

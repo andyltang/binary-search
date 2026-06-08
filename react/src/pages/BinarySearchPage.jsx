@@ -5,11 +5,9 @@ import { BinarySearchCard } from '../components/BinarySearchCard';
 import { LTEQ_PREDICATE, LT_PREDICATE, GTEQ_PREDICATE, GT_PREDICATE,
          binarySearchLeft, binarySearchRight } from '../utils/BinarySearch';
 
-const defaultData = [1, 2, 3, 4, 5];
-
 export function BinarySearchPage() {
   const [target, setTarget] = useState(3);
-  const [array, setArray] = useState(defaultData);
+  const [array, setArray] = useState([1, 2, 3, 4, 5]);
   const [checkEquality, setCheckEquality] = useState(false);
 
   const leftPredicate = checkEquality ? LTEQ_PREDICATE : LT_PREDICATE;
@@ -17,7 +15,7 @@ export function BinarySearchPage() {
 
   return (
     <div className="page">
-      <h1>Binary Search Visualizer</h1>
+      <h1>Binary Search</h1>
       <BinarySearchForm target={target} setTarget={setTarget}
                         array={array} setArray={setArray}
                         checkEquality={checkEquality} setCheckEquality={setCheckEquality}></BinarySearchForm>
