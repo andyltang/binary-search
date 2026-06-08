@@ -6,9 +6,15 @@
     padding-right: 20px;
 }
 
-.grid {
+.grid-col-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.grid-col-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
     gap: 16px;
 }
 

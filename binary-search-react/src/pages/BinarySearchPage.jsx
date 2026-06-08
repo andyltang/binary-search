@@ -1,7 +1,7 @@
 import '../styles/style.css';
 import { useState } from 'react';
 import { BinarySearchForm } from '../components/BinarySearchForm';
-import { BinarySearchDisplay } from '../components/BinarySearchCard';
+import { BinarySearchCard } from '../components/BinarySearchCard';
 import { LTEQ_PREDICATE, LT_PREDICATE, GTEQ_PREDICATE, GT_PREDICATE,
          binarySearchLeft, binarySearchRight } from '../utils/BinarySearch';
 
@@ -21,9 +21,9 @@ export function BinarySearchPage() {
       <BinarySearchForm target={target} setTarget={setTarget}
                         array={array} setArray={setArray}
                         checkEquality={checkEquality} setCheckEquality={setCheckEquality}></BinarySearchForm>
-      <BinarySearchDisplay target={target} array={array} isLeftBias={true} checkEquality={checkEquality}
+      <BinarySearchCard target={target} array={array} isLeftBias={true} checkEquality={checkEquality}
                            search={binarySearchLeft} predicate={leftPredicate} />
-      <BinarySearchDisplay target={target} array={array} isLeftBias={false} checkEquality={checkEquality}
+      <BinarySearchCard target={target} array={array} isLeftBias={false} checkEquality={checkEquality}
                            search={binarySearchRight} predicate={rightPredicate} />
     </div>
   )
