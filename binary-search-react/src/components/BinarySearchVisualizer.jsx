@@ -5,12 +5,12 @@ export function BinarySearchVisualizer({ array, target, search, predicate }) {
   const found = search(array, target, predicate);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="flex-column">
       <div className="list margin-top-bottom">
         { matches.map((match, i) => {
           return (
             <div key={i + array[i]} className={`box transitions 
-                             ${match ? "active" : "inactive"} 
+                             ${match ? "bg-green" : "bg-red"} 
                              ${i === found ? "found" : ''}
                              ${i === found ? "transform-scale" : ''} `}>
               {array[i]}
@@ -18,7 +18,14 @@ export function BinarySearchVisualizer({ array, target, search, predicate }) {
           );
         }) }
       </div>
-      <p>i = {found}</p>
+      <pre className="font-16px">
+        <code>
+          Results <br />
+          --- <br />
+          i = {found} <br />
+          arr[i] = {found >= 0 && found < array.length ? array[found] : <span className="red">INDEX OOB</span>}
+        </code>
+      </pre>
     </div>
   );
 }

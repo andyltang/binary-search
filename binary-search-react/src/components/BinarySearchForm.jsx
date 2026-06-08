@@ -46,7 +46,7 @@ export function BinarySearchForm({ target, setTarget, array, setArray, checkEqua
   return (
     <ul>
       <li>Target = <input type="number" value={target} onChange={handleTarget} /></li>
-      <li>Input = <Combobox data={data} value={arrayDisplay} handleChange={handleArray}
+      <li>Array = <Combobox data={data} value={arrayDisplay} handleChange={handleArray}
                             open={open} toggleOpen={toggleOpen} 
                             handleBlur={handleBlur} handleOption={handleOption} /></li>
       <li><input type="checkbox" checked={checkEquality}

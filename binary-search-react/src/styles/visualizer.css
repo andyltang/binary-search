@@ -14,14 +14,6 @@
     border-radius: 8px;
 }
 
-.active {
-    background-color: #7fb685;
-}
-
-.inactive {
-    background-color: #ef6f6c;
-}
-
 .found {
     font-weight: bold;
     color: white;

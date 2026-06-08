@@ -28,8 +28,8 @@ export function BinarySearchCode({ isLeftBias, target, checkEquality }) {
   return (
     <pre>
       <code>
-        {isLeftBias ? `# "The largest value smaller than ${checkEquality ? "or equal to " : ''}${target}"`
-                    : `# "The smallest value larger than ${checkEquality ? "or equal to " : ''}${target}"`}
+        {isLeftBias ? `# "The largest value less than ${checkEquality ? "or equal to " : ''}${target}"`
+                    : `# "The smallest value greater than ${checkEquality ? "or equal to " : ''}${target}"`}
         <br />
         {isLeftBias ? leftBinarySearch : rightBinarySearch}
       </code>

@@ -12,7 +12,32 @@
     gap: 16px;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .margin-top-bottom {
     margin-top: 13px;
     margin-bottom: 13px;
+}
+
+.font-16px {
+    font-size: 16px;
+}
+
+.bg-green {
+    background-color: #7fb685;
+}
+
+.bg-red {
+    background-color: #ef6f6c;
+}
+
+.green {
+    color: #7fb685;
+}
+
+.red {
+    color: #ef6f6c;
 }
