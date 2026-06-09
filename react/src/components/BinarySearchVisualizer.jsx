@@ -1,6 +1,9 @@
 import "../styles/visualizer.css";
+import { useContext } from 'react';
+import { BinarySearchContext } from "../contexts/BinarySearchContext";
 
-export function BinarySearchVisualizer({ array, target, search, predicate }) {
+export function BinarySearchVisualizer({ search, predicate }) {
+  const { array, target } = useContext(BinarySearchContext);
   const matches = array.map((inp) => predicate(inp, target));
   const found = search(array, target, predicate);
 

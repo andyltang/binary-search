@@ -1,4 +1,9 @@
-export function BinarySearchCode({ isLeftBias, target, checkEquality }) {
+import { useContext } from 'react';
+import { BinarySearchContext } from '../contexts/BinarySearchContext';
+
+export function BinarySearchCode({ isLeftBias }) {
+  const { target, checkEquality } = useContext(BinarySearchContext);
+  
   const leftBinarySearch = `
   def binarySearchLeft(arr):
       l, r = 0, len(arr) - 1
@@ -25,15 +30,18 @@ export function BinarySearchCode({ isLeftBias, target, checkEquality }) {
             l = m + 1
     return res`;
 
+  const predicate = isLeftBias ? `arr[m] ${checkEquality ? "<=" : "<"} target`
+                               : `arr[m] ${checkEquality ? ">=" : ">"} target`;
+
+  const description = isLeftBias ? `# "The largest value less than ${checkEquality ? "or equal to " : ''}${ target }"`
+              : `# "The smallest value greater than ${checkEquality ? "or equal to " : ''}${ target }"`
+  
   return (
     <pre>
       <code>
-        {`# predicate = ${isLeftBias ? `arr[m] ${checkEquality ? "<=" : "<"} target`
-                                     : `arr[m] ${checkEquality ? ">=" : ">"} target`}`}
+        {`# predicate = ${ predicate }`}
         <br />
-        {isLeftBias ? `# "The largest value less than ${checkEquality ? "or equal to " : ''}${target}"`
-                    : `# "The smallest value greater than ${checkEquality ? "or equal to " : ''}${target}"`}
-        
+        { description }
         <br />
         {isLeftBias ? leftBinarySearch : rightBinarySearch}
       </code>

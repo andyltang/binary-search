@@ -1,9 +1,12 @@
 import { BinarySearchPage } from './pages/BinarySearchPage';
+import { BinarySearchProvider } from './contexts/BinarySearchContext'
 
 function App() {
   return (
     <>
-      <BinarySearchPage />
+      <BinarySearchProvider>
+        <BinarySearchPage />
+      </BinarySearchProvider>
     </>
   )
 }

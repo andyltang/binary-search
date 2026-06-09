@@ -1,6 +1,7 @@
 import '../styles/form.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Combobox } from './Combobox';
+import { BinarySearchContext } from '../contexts/BinarySearchContext';
 
 const data = ["1, 2, 3, 4, 5",
               "1, 2, 3, 3, 3, 4, 5",
@@ -14,7 +15,10 @@ function parseArray(str) {
 }
 
 
-export function BinarySearchForm({ target, setTarget, array, setArray, checkEquality, setCheckEquality }) {
+export function BinarySearchForm() {
+  const { target, setTarget,
+          array, setArray,
+          checkEquality, setCheckEquality } = useContext(BinarySearchContext)
   const [arrayDisplay, setArrayDisplay] = useState(array.join(", "));
   const [open, setOpen] = useState(false);
 
@@ -48,8 +52,9 @@ export function BinarySearchForm({ target, setTarget, array, setArray, checkEqua
       <div className="grid-col-3 margin-top-bottom">
         <div><label>Target =</label> <input type="number" value={target} onChange={handleTarget} /></div>
         <div><label>Array =</label> <Combobox data={data} value={arrayDisplay} handleChange={handleArray}
-                              open={open} toggleOpen={toggleOpen} 
-                              handleBlur={handleBlur} handleOption={handleOption} /></div>
+                                              open={open} toggleOpen={toggleOpen} 
+                                              handleBlur={handleBlur} handleOption={handleOption} />
+        </div>
       </div>
       <div className="grid-col-2 margin-top-bottom">
         <div><input type="checkbox" checked={checkEquality}
